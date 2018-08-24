@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerDataService } from '../player-data.service';
 
+
 @Component({
   selector: 'app-player-view',
   templateUrl: './player-view.component.html',
@@ -8,10 +9,10 @@ import { PlayerDataService } from '../player-data.service';
 })
 
 export class PlayerViewComponent implements OnInit {
-  constructor(public xdd: PlayerDataService) { }
+  constructor(public Player: PlayerDataService) { }
 
   ngOnInit() {
   }
 
-  xd = this.xdd.player.name;
+  
 }

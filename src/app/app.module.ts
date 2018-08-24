@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {PlayerDataService} from './player-data.service';
+
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 
 import { AppComponent } from './app.component';
 import { PlayerViewComponent } from './player-view/player-view.component';
@@ -21,7 +25,10 @@ import { PlayerInventoryComponent } from './player-inventory/player-inventory.co
     PlayerInventoryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [PlayerDataService],
   bootstrap: [AppComponent]
