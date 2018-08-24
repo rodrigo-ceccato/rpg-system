@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/*disable text selection, making the app fell
+more 'native', thx to msuchodolski code on github*/
+*, *::after, *::before {
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-app-region: no-drag;
+    cursor: default;
+}
+
+body {
+    margin: 0;
+    color: white;
+    background-color: black;
+}
+

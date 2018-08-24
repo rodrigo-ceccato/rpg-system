@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'RPG System';
+
+  public generalView = true;
+  public inventoryView = false;
+  public combatView = false;
+  public loreView = false;
+
+  toggleGeneralView(){
+   this.generalView = !this.generalView ;
+  }
+
+  toggleInventoryView(){
+   this.inventoryView = !this.inventoryView ;
+  }
+
+  toggleCombatView(){
+   this.combatView = !this.combatView ;
+  }
+  
+  toggleLoreView(){
+   this.loreView = !this.loreView ;
+  }
 }
