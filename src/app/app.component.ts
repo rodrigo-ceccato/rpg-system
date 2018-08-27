@@ -10,7 +10,7 @@ export class AppComponent {
 
   public generalView = true;
   public inventoryView = false;
-  public combatView = false;
+  public combatView = true;
   public loreView = false;
 
   toggleGeneralView(){

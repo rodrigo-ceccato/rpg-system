@@ -13,6 +13,7 @@ import { PlayerEditSkillsComponent } from './player-edit-skills/player-edit-skil
 import { PlayerLoreComponent } from './player-lore/player-lore.component';
 import { PlayerCombatComponent } from './player-combat/player-combat.component';
 import { PlayerInventoryComponent } from './player-inventory/player-inventory.component';
+import { DiceRollComponent } from './dice-roll/dice-roll.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PlayerInventoryComponent } from './player-inventory/player-inventory.co
     PlayerEditSkillsComponent,
     PlayerLoreComponent,
     PlayerCombatComponent,
-    PlayerInventoryComponent
+    PlayerInventoryComponent,
+    DiceRollComponent
   ],
   imports: [
     BrowserModule,

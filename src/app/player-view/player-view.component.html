@@ -1,5 +1,98 @@
-<h1>Visão Geral</h1>
-> getting data from player provider: {{xd}}
-HP :
+<h2>Visão Geral</h2>
+<div class="row">
+  <!-- left column -->
+  <div class="column">
+    <!-- player pic frame -->
+    <h3>Foto</h3>
+    <div class="picFrame"></div>
+
+    <!-- mana, health, stamina bars -->
+    <h4>Saúde</h4>
+    <div class="container">
+      <div class="box1">
+        PV
+        <BR>PM
+        <BR>PR
+      </div>
+      <div class="box2">
+        <div class="progressBarWrapper">
+          <progress max="{{this.Player.player.maxHealth}}" value="{{this.Player.player.health}}"></progress>
+          <progress max="{{this.Player.player.maxMana}}" value="{{this.Player.player.mana}}"></progress>
+          <progress max="{{this.Player.player.maxSta}}" value="{{this.Player.player.sta}}"></progress>
+        </div>
+      </div>
+      <div class="box3">
+        <input [(ngModel)]="this.Player.player.health" type="number">/
+        <input [(ngModel)]="this.Player.player.maxHealth" type="number">
+
+        <BR><input [(ngModel)]="this.Player.player.mana" type="number">/
+        <input [(ngModel)]="this.Player.player.maxMana" type="number">
+
+        <BR><input [(ngModel)]="this.Player.player.sta" type="number">/
+        <input [(ngModel)]="this.Player.player.maxSta" type="number">
+      </div>
+    </div>
+
+    <!-- attributes -->
+    <BR>
+    <h3>Aptidões</h3>
+    <div class="container">
+      <div class="box1">
+        Destreza:
+        <BR> Inteligência:
+        <BR> constituição:
+        <BR> Espírito:
+        <BR> Carisma:
+        <BR> Determinação:
+      </div>
+      <div class="box2">
+        1<br> 2
+        <br> 3
+      </div>
+    </div>
 
 
+  </div>
+
+  <!-- right column -->
+  <div class="column">
+    Vida:
+    <BR> Resistência:
+    <BR> Magia:
+    <BR> Acerto:
+    <BR> Evasão:
+    <BR> Armadura:
+    <BR> Dano:
+    <BR>
+
+    <!-- tables of xp -->
+    <BR>
+    <h3>Tabela de Experiência</h3>
+    <div class="divTable blueTable">
+      <div class="divTableBody">
+        <div class="divTableRow">
+          <div class="divTableCell"><b>>Tipo</b></div>
+          <div class="divTableCell"><b>Disponível</b></div>
+          <div class="divTableCell"><b>Total</b></div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">12</div>
+          <div class="divTableCell">cell2_2</div>
+          <div class="divTableCell">cell3_2</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">cell1_3</div>
+          <div class="divTableCell">cell2_3</div>
+          <div class="divTableCell">cell3_3</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">cell1_4</div>
+          <div class="divTableCell">cell2_4</div>
+          <div class="divTableCell">cell3_4</div>
+        </div>
+      </div>
+
+
+      Rank: Exp: Reputação:
+    </div>
+  </div>

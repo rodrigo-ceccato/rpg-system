@@ -1,0 +1,90 @@
+h2,h3,h4,h5,h6 {
+    height: 4px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container{
+    max-width: 800px
+}
+  
+.box1{
+    width: 15px;
+    height: 20px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.box2{
+    width: 40%;
+    height: 20px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.box3{
+    width: 99px;
+    height: 20px;
+    display: table-cell;
+    vertical-align: top;
+    align-content: space-around;
+} 
+
+input {
+    width: 40px;
+    border: none;
+}
+
+/* player pic frame */
+.picFrame{
+    border-style: solid;
+    height: 200px;
+    width: 200px;
+}
+
+div.blueTable {
+    text-align: left;
+    border-collapse: collapse;
+  }
+  
+  .blueTable .tableFootStyle {
+    font-size: 14px;
+  }
+  .blueTable .tableFootStyle .links {
+       text-align: right;
+  }
+  .blueTable .tableFootStyle .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  .blueTable.outerTableFooter {
+    border-top: none;
+  }
+  .blueTable.outerTableFooter .tableFootStyle {
+    padding: 3px 5px; 
+  }
+  /* DivTable.com */
+  .divTable{ display: table; }
+  .divTableRow { display: table-row; }
+  .divTableHeading { display: table-header-group;}
+  .divTableCell, .divTableHead { display: table-cell;}
+  .divTableHeading { display: table-header-group;}
+  .divTableFoot { display: table-footer-group;}
+  .divTableBody { display: table-row-group;}
+
+.progressBarWrapper{
+    margin-right: 10px;   
+}

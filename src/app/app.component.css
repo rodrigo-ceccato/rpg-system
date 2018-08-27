@@ -10,7 +10,15 @@ h1 {
   left: 0;
   bottom: 0;
   width: 100%;
-  text-align: center;
+  background: lightgrey;
+  z-index: 999;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 10px;
 }
 
 ul {
@@ -41,3 +49,8 @@ li a:hover:not(.active) {
     background-color:grey;
 }
 
+.componentWrapper {
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}

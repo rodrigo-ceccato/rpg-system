@@ -9,6 +9,8 @@ import { PlayerDataService } from '../player-data.service';
 })
 
 export class PlayerViewComponent implements OnInit {
+  public x = 1000;
+  
   constructor(public Player: PlayerDataService) { }
 
   ngOnInit() {

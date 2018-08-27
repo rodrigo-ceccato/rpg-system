@@ -5,17 +5,19 @@
     <li><a [ngClass]="{'active': combatView}" (click)="toggleCombatView()">Combate</a></li>
     <li><a [ngClass]="{'active': loreView}" (click)="toggleLoreView()">História</a></li>
 
-    <li style="float:right"><a class="active" >RPG System 0.0.1</a></li>
+    <li style="float:right"><a class="active">RPG System 0.0.1</a></li>
   </ul>
 </div>
 
-<div class="content">
-  <app-player-view *ngIf="generalView"></app-player-view>
-  <app-player-inventory *ngIf="inventoryView"></app-player-inventory>
-  <app-player-combat *ngIf="combatView"></app-player-combat>
-  <app-player-lore *ngIf="loreView" ></app-player-lore>
-</div>
+<div class="componentWrapper">
+  <div class="content">
+    <app-player-view *ngIf="generalView"></app-player-view>
+    <app-player-inventory *ngIf="inventoryView"></app-player-inventory>
+    <app-player-combat *ngIf="combatView"></app-player-combat>
+    <app-player-lore *ngIf="loreView"></app-player-lore>
+  </div>
+</div>  
 
 <div class="footer">
-  <p>Rpg-System v0.0.1</p>
+    <app-dice-roll></app-dice-roll>
 </div>

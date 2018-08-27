@@ -12,7 +12,7 @@ export class PlayerDataService {
     this.player.history = ["Nasceu", "Comeu", "se aventurou pela florseta xd"];
     this.player.skills = [];
 
-    this.player.maxHealth = 10;
+    this.player.maxHealth = 50;
     this.player.maxMana = 10;
     this.player.maxSta = 10;
     this.player.health = 10;
@@ -30,6 +30,4 @@ export class PlayerDataService {
     this.player.armor = 30;
     this.player.dmg = 1;
   }
-
-
 }
