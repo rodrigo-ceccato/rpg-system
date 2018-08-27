@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import {PlayerDataService} from './player-data.service';
+import {DiceLogicService} from './dice-logic.service';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
@@ -32,7 +33,7 @@ import { DiceRollComponent } from './dice-roll/dice-roll.component';
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
-  providers: [PlayerDataService],
+  providers: [PlayerDataService, DiceLogicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
