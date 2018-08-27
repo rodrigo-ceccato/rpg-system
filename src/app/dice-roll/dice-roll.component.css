@@ -1,0 +1,16 @@
+.contWrapper{
+    display: flex;
+    align-content: space-around;
+}
+
+.rollBtnWrapper {
+    align-content: center;
+    display: inline;
+}
+
+.rollExpression {
+    right: 0;
+    position: fixed;
+    
+}
+

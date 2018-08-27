@@ -1,0 +1,13 @@
+<div class="contWrapper">
+  <div class="rollInput">
+    <input [(ngModel)]="rollInputExpression">
+  </div>
+
+  <div class="rollExpression">
+    {{parsedRoll}} = {{rollNumericValue}}
+  </div>
+
+  <div class="rollBtnWrapper">
+    <button (click)="parseRollInput()">Rolar!</button>
+  </div>
+</div>
