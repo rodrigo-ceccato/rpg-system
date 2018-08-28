@@ -12,4 +12,5 @@ describe('DiceLogicService', () => {
   it('should be created', inject([DiceLogicService], (service: DiceLogicService) => {
     expect(service).toBeTruthy();
   }));
+
 });

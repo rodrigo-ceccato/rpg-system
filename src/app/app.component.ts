@@ -8,10 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'RPG System';
 
-  public generalView = true;
+  public generalView = false;
   public inventoryView = false;
-  public combatView = true;
+  public combatView = false;
   public loreView = false;
+  public mapView = true;
 
   toggleGeneralView(){
    this.generalView = !this.generalView ;
@@ -27,5 +28,9 @@ export class AppComponent {
   
   toggleLoreView(){
    this.loreView = !this.loreView ;
+  }
+  
+  toggleMapView(){
+   this.mapView = !this.mapView ;
   }
 }

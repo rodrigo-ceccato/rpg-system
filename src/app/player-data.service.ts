@@ -6,11 +6,18 @@ export class PlayerDataService {
 
   player = <any>{};
 
-  constructor() { 
+  constructor() {
     this.player.name = 'robsonion';
-    
+
     this.player.history = ["Nasceu", "Comeu", "se aventurou pela florseta xd"];
-    this.player.skills = [];
+    this.player.skills = [{
+      editable: false,
+      formula: "1d4 + 4",
+      hpCost: 0,
+      spCost: 0,
+      staCost: 0,
+      name: "Iniciativa"}
+    ];
 
     this.player.maxHealth = 50;
     this.player.maxMana = 10;

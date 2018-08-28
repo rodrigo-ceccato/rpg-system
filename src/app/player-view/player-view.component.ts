@@ -9,12 +9,16 @@ import { PlayerDataService } from '../player-data.service';
 })
 
 export class PlayerViewComponent implements OnInit {
-  public x = 1000;
   
+  public showPhoto = true;
+
   constructor(public Player: PlayerDataService) { }
 
   ngOnInit() {
   }
 
+  togglePhoto(){
+    this.showPhoto = !this.showPhoto;
+  }
   
 }

@@ -1,0 +1,9 @@
+.skillCard {
+    margin-bottom: 5px;
+}
+
+/* todo: fix this, not aplying */
+input.skillDisplayMode{
+    color: grey;
+    background-color: chocolate;
+}

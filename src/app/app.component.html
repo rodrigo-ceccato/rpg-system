@@ -1,9 +1,10 @@
 <div class="header">
   <ul>
-    <li><a [ngClass]="{'active': generalView}" (click)="toggleGeneralView()">Visão Geral</a></li>
+    <li><a [ngClass]="{'active': generalView}" (click)="toggleGeneralView()">Geral</a></li>
     <li><a [ngClass]="{'active': inventoryView}" (click)="toggleInventoryView()">Inventário</a></li>
     <li><a [ngClass]="{'active': combatView}" (click)="toggleCombatView()">Combate</a></li>
     <li><a [ngClass]="{'active': loreView}" (click)="toggleLoreView()">História</a></li>
+    <li><a [ngClass]="{'active': mapView}" (click)="toggleMapView()">Mapa</a></li>
 
     <li style="float:right"><a class="active">RPG System 0.0.1</a></li>
   </ul>
@@ -15,6 +16,7 @@
     <app-player-inventory *ngIf="inventoryView"></app-player-inventory>
     <app-player-combat *ngIf="combatView"></app-player-combat>
     <app-player-lore *ngIf="loreView"></app-player-lore>
+    <app-map-view *ngIf="mapView"></app-map-view>
   </div>
 </div>  
 

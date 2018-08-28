@@ -1,12 +1,28 @@
 <h2>Combate</h2>
 
 Ações de combate:
+<button (click)="addSkill()">Nova</button>
 
-<!-- combat info and usage -->
-<input [(ngModel)]="username">
+<div class="skillCard" *ngFor="let skill of this.Player.player.skills;  let i = index">
+    <!-- combat info and usage -->
+    <div class="skillDisplayMode" *ngIf="skill.editable == false">
+        {{skill.name}} |
+        [{{skill.formula}}]
+        = [{{skill.rollResult}}] 
 
-<button>Rolar</button>
-<button>Editar</button>
+        <p *ngIf="skill.hpCost != 0">-{{skill.hpCost}} PV</p>
+        <p *ngIf="skill.spCost != 0">-{{skill.spCost}} PM</p>
+        <p *ngIf="skill.staCost != 0">-{{skill.staCost}} PR</p>
+        <button (click)="rollSkillFormula(i)">Rolar</button>
+        <button (click)="editSkill(i)">Editar</button>
+    </div>
 
-<!-- combat action edit mode -->
-<button>Salvar</button>
+    <!-- combat action edit mode -->
+    <div class="skillEditMode" *ngIf="skill.editable == true">
+        <input [(ngModel)]="skill.name">
+        <input [(ngModel)]="skill.formula">
+        <button (click)="saveSkill(i)">Salvar</button>
+        <button (click)="deleteSkill(i)">Deletar</button>
+    </div>
+
+</div>

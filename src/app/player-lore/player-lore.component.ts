@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerDataService } from '../player-data.service';
 
-
-
 @Component({
   selector: 'app-player-lore',
   templateUrl: './player-lore.component.html',

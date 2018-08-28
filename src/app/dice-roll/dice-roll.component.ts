@@ -14,12 +14,13 @@ export class DiceRollComponent implements OnInit {
 
   constructor(public Dice: DiceLogicService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    // roll a d20 when you open the app :)
+    this.Dice.parseRoll(this.rollInputExpression);
+  }
 
   parseRollInput() {
     this.Dice.parseRoll(this.rollInputExpression);
-    this.parsedRoll = this.Dice.parsedRoll;
-    this.rollNumericValue = this.Dice.rollNumericValue;
   }    
 
 }
