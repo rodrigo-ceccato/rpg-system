@@ -1,0 +1,20 @@
+<div class="row">
+  <h2>Mapa</h2>
+  <div class="mapWrapper">
+    <div class="column left">
+      <div class="mapRow" *ngFor="let row of map; let i = index">
+        <div class="col" *ngFor="let tile of row; let j = index">
+          <div class="tileBlock" (click)="selectTile(i,j)">
+            {{tile}}
+          </div>
+
+        </div>
+        <BR>
+      </div>
+    </div>
+  </div>
+  <div class="column right">
+    <h2>Controles</h2>
+    <p>Selecionou: {{selectedTile.i}},{{selectedTile.j}}</p>
+  </div>
+</div>
