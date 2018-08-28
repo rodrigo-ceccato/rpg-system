@@ -6,11 +6,14 @@
 .rollBtnWrapper {
     align-content: center;
     display: inline;
+    z-index: 999;
 }
 
 .rollExpression {
     right: 0;
-    position: fixed;
-    
+    position: fixed;   
 }
 
+.rollInput{
+    z-index: 999;
+}
