@@ -4,10 +4,12 @@
     <div class="column left">
       <div class="mapRow" *ngFor="let row of map; let i = index">
         <div class="col" *ngFor="let tile of row; let j = index">
-          <div class="tileBlock" (click)="selectTile(i,j)">
-            {{tile}}
+          <div class="tileBlock" [ngClass]="{'selectedStyle': i===this.selectedTile.i && 
+          j===this.selectedTile.j, 'blocked': tile.blocked == true}" (click)="selectTile(i,j)">
+            <div *ngFor="let item of tile.inVision">
+                {{item}}
+            </div>
           </div>
-
         </div>
         <BR>
       </div>
@@ -16,5 +18,13 @@
   <div class="column right">
     <h2>Controles</h2>
     <p>Selecionou: {{selectedTile.i}},{{selectedTile.j}}</p>
+    Altura:<input [(ngModel)]="tableH"> Largura:
+    <input [(ngModel)]="tableW">
+
+    <button (click)="generateMap()">Gerar</button>
+
+    <button (click)="moveMe()">Me mover</button>
+
+    <button (click)="toggleBlockTerrain()">Terrano bloqueado</button>
   </div>
 </div>
