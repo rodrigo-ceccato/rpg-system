@@ -14,16 +14,14 @@ export class MapProviderService {
   public tableW = 4;
   public tableH = 4;
 
+  public peerServerId = '0';
+
   //need to remeber where player was,
   //so we can remove when moving
   playerLastPositionI = '0';
   playerLastPositionJ = '0';
 
   constructor(public Player: PlayerDataService) {
-    var peer = new Peer();
-    peer.on('open', function (id) {
-      console.log('My peer ID is: ' + id);
-    });
 
     this.generateMap();
   }

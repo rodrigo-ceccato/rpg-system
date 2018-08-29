@@ -19,7 +19,9 @@
   <div class="column right">
     <h2>Controles</h2>
     <button (click)="toggleServeMap()"> Host/Client</button>
-    <app-map-host *ngIf="serveMap"></app-map-host>
+    <app-map-host *ngIf="!serveMap"></app-map-host>
+    
+    <!--TODO update this to serveMap -->
     <app-map-client *ngIf="!serveMap"> </app-map-client>
   </div>
 </div>

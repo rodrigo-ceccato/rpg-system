@@ -17,10 +17,18 @@ export class MapViewComponent implements OnInit {
   constructor(public Map: MapProviderService) {
     //get the map from provider
     this.selectedTile = this.Map.selectedTile;
+
+    //TODO: change this to update only when needed
+    setInterval(() => this.updateMap(), 250);
+
     this.map = this.Map.map;
   }
 
   ngOnInit() {
+  }
+
+  updateMap(){
+    this.map = this.Map.map;
   }
 
   // toggle if we are hosting or acessing a map

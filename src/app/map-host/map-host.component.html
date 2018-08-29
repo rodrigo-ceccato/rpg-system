@@ -1,10 +1,17 @@
 
 <p>Selecionou: {{selectedTile.i}},{{selectedTile.j}}</p>
-Altura:<input [(ngModel)]="tableH"> Largura:
-<input [(ngModel)]="tableW">
+
+PeerId= {{peerHostId}} <br>
+
+Altura:<input [(ngModel)]="tableH"> 
+<BR>
+Largura:<input [(ngModel)]="tableW">
+<br>
 
 <button (click)="generateMap()">Gerar</button>
 
 <button (click)="moveMe()">Me mover</button>
 
 <button (click)="toggleBlockTerrain()">Terrano bloqueado</button>
+
+<button (click)="sendData()">SendData</button>
