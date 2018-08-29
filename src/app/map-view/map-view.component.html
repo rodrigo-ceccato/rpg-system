@@ -1,3 +1,4 @@
+<!-- map display -->
 <div class="row">
   <h2>Mapa</h2>
   <div class="mapWrapper">
@@ -7,7 +8,7 @@
           <div class="tileBlock" [ngClass]="{'selectedStyle': i===this.selectedTile.i && 
           j===this.selectedTile.j, 'blocked': tile.blocked == true}" (click)="selectTile(i,j)">
             <div *ngFor="let item of tile.inVision">
-                {{item}}
+              {{item}}
             </div>
           </div>
         </div>
@@ -17,14 +18,8 @@
   </div>
   <div class="column right">
     <h2>Controles</h2>
-    <p>Selecionou: {{selectedTile.i}},{{selectedTile.j}}</p>
-    Altura:<input [(ngModel)]="tableH"> Largura:
-    <input [(ngModel)]="tableW">
-
-    <button (click)="generateMap()">Gerar</button>
-
-    <button (click)="moveMe()">Me mover</button>
-
-    <button (click)="toggleBlockTerrain()">Terrano bloqueado</button>
+    <button (click)="toggleServeMap()"> Host/Client</button>
+    <app-map-host *ngIf="serveMap"></app-map-host>
+    <app-map-client *ngIf="!serveMap"> </app-map-client>
   </div>
 </div>

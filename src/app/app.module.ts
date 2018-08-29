@@ -15,7 +15,9 @@ import { PlayerCombatComponent } from './player-combat/player-combat.component';
 import { PlayerInventoryComponent } from './player-inventory/player-inventory.component';
 import { DiceRollComponent } from './dice-roll/dice-roll.component';
 import { MapViewComponent } from './map-view/map-view.component';
-
+import { MapHostComponent } from './map-host/map-host.component';
+import { MapClientComponent } from './map-client/map-client.component';
+import { MapProviderService } from './map-provider.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { MapViewComponent } from './map-view/map-view.component';
     PlayerCombatComponent,
     PlayerInventoryComponent,
     DiceRollComponent,
-    MapViewComponent
+    MapViewComponent,
+    MapHostComponent,
+    MapClientComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,11 @@ import { MapViewComponent } from './map-view/map-view.component';
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
-  providers: [PlayerDataService, DiceLogicService],
+  providers: [
+    PlayerDataService,
+    DiceLogicService,
+    MapProviderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
