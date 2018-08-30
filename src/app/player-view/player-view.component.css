@@ -15,25 +15,26 @@ h2,h3,h4,h5,h6 {
 }
 
 .container{
-    max-width: 800px
+    max-width: 800px;
+    line-height: 24px;
 }
   
 .box1{
-    width: 15px;
+    width: 30px;
     height: 20px;
     display: table-cell;
     vertical-align: top;
 }
 
 .box2{
-    width: 40%;
+    width: 20%;
     height: 20px;
     display: table-cell;
     vertical-align: top;
 }
 
 .box3{
-    width: 99px;
+    width: 30px;
     height: 20px;
     display: table-cell;
     vertical-align: top;

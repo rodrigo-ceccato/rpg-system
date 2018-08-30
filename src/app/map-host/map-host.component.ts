@@ -11,23 +11,38 @@ export class MapHostComponent implements OnInit {
   public tableW;
   public tableH;
   public peerHostId = 'loading ID...';
-  public peer;
 
-  constructor(public Map:MapProviderService) {
+  constructor(public Map: MapProviderService) {
     //get variables from provider
     this.selectedTile = this.Map.selectedTile;
     this.tableW = this.Map.tableW;
     this.tableH = this.Map.tableH;
     this.peerHostId = this.Map.peerServerId;
+  }
 
-    //open 'serving' peer
-    this.peer = new Peer();
-    this.peer.on('open', function (id) {
-      console.log('My peer ID is: ' + id);
-    });
-   }
+  
 
   ngOnInit() {
+    var peer = new Peer({key: 'lwjd5qra8257b9'});
+
+    peer.on('open', function(id) {
+      console.log('My peer ID is: ' + id);
+    });
+
+    var conn = peer.connect('another-peers-id');
+    // on open will be launch when you successfully connect to PeerServer
+    conn.on('open', function(){
+      // here you have conn.id
+      conn.send('hi!');
+    });
+
+    peer.on('connection', function(conn) {
+      conn.on('data', function(data){
+        // Will print 'hi!'
+        console.log(data);
+      });
+    });
+
   }
 
   toggleBlockTerrain() {
@@ -43,21 +58,12 @@ export class MapHostComponent implements OnInit {
     this.Map.generateMap();
   }
 
-  moveMe(){
+  moveMe() {
     this.Map.moveMe();
   }
 
-  sendData(){
-    var conn = this.peer.connect();
-    this.peer.on('connection', function(conn) { 
-     
-     });
-    
-      // Send messages
-      conn.send('Hello!');
-      console.log('send data');
+  sendData() {
 
-    });
-  
+
   }
 }

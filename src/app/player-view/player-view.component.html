@@ -35,27 +35,37 @@
 
     <!-- attributes -->
     <BR>
-    <h3>Aptidões</h3>
+    <h3>Aptidões <button (click)="editAttributes()">Editar</button> <button (click)="addNewAttribute()">Nova</button></h3>
     <div class="container">
       <div class="box1">
-        Destreza:
-        <BR> Inteligência:
-        <BR> constituição:
-        <BR> Espírito: 
-        <BR> Carisma: 
-        <BR> Determinação:
+        Nome:
+        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.name">
+          <div *ngIf="attributeEdit==false">{{attribute.name}}</div>
+        </div>
       </div>
+
       <div class="box2">
-        1<br> 2
-        <br> 3
+        Formula:
+        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.formula">
+          <div *ngIf="attributeEdit==false">{{attribute.formula}}</div>
+        </div>
       </div>
 
       <div class="box3">
-        <button>Teste</button>
-        <button>Teste</button>
-        <button>Teste</button>
-        <button>Teste</button>
-        <button>Teste</button>
+        Teste:
+        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+          <div *ngIf="attributeEdit==false">
+              <button (click)="rollAttributeTest(i)">Rolar</button>
+              =: {{attribute.rollResult}}
+          </div>
+
+          <div *ngIf="attributeEdit==true">
+              <button (click)="delAttribute(i)">Del</button>
+          </div>
+          
+        </div>
       </div>
     </div>
 
@@ -63,6 +73,7 @@
 
   <!-- right column -->
   <div class="column">
+    <h3>Status</h3>
     Vida:
     <BR> Resistência:
     <BR> Magia:

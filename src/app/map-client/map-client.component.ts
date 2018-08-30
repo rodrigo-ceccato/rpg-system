@@ -21,22 +21,12 @@ export class MapClientComponent implements OnInit {
   }
 
   getData(){
-    let info = '00';
-    var conn = this.peer.connect(this.DestionationPeerId);
-    this.peer.on('connection', function(conn) { 
-     
-     });
-
-     conn.on('open', function() {
-      // Receive messages
-      conn.on('data', function(data) {
-        console.log('Received', data);
-        info = data;
-      });
-
+    var conn = this.peer.connect('another-peers-id');
+    // on open will be launch when you successfully connect to PeerServer
+    conn.on('open', function(){
+      // here you have conn.id
+      conn.send('hi!');
     });
-
-    setInterval(() => info, 1000);
 
   }
 

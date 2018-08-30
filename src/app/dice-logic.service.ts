@@ -17,6 +17,8 @@ export class DiceLogicService {
     let roll = this.dice.roll(rollInputExpression);
     this.parsedRoll = roll.renderedExpression;
     this.rollNumericValue = roll.total;
+
+    return this.rollNumericValue;
   }
 
 }
