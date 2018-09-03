@@ -1,14 +1,35 @@
 .skillCard {
     margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-style: double;
+    width: 45%;
+    flex-direction: row;
+    
 }
 
-/* todo: fix this, not aplying */
-input.skillDisplayMode{
-    color: grey;
-    background-color: chocolate;
+.skillWrapper {
+    flex-wrap:wrap;
 }
 
 input {
     width: 40px;
     border: none;
+    background-color: white;
+    -webkit-animation-name: an1; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: an1;
+    animation-duration: 1s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes an1 {
+    from {background-color: white;}
+    to {background-color: grey;}
+}
+
+/* Standard syntax */
+@keyframes an1 {
+    from {background-color: white;}
+    to {background-color: grey;}
 }

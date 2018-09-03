@@ -28,3 +28,6 @@ todo=> export/import PLAYERSERVICE to CSV
 kwno issue> new dice parser crasing THE WHLE THING on some inputs
 
 área de combate
+
+
+ALLOW PM PV PR COST TO BE DICE ROLLS TOO!! 

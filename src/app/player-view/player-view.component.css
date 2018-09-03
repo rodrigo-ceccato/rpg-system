@@ -44,6 +44,23 @@ h2,h3,h4,h5,h6 {
 input {
     width: 40px;
     border: none;
+    background-color: white;
+    -webkit-animation-name: an1; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: an1;
+    animation-duration: 1s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes an1 {
+    from {background-color: white;}
+    to {background-color: grey;}
+}
+
+/* Standard syntax */
+@keyframes an1 {
+    from {background-color: white;}
+    to {background-color: grey;}
 }
 
 /* player pic frame */
@@ -88,4 +105,18 @@ div.blueTable {
 
 .progressBarWrapper{
     margin-right: 10px;   
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+} 
+
+table.d {
+    table-layout: fixed;
+    width: 90%;    
+}
+
+th,td {
+    border: 1px solid black;
 }

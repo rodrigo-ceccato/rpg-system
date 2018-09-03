@@ -51,36 +51,48 @@ export class PlayerDataService {
         name: "Inteligência",
         formula: "1d4",
         formulaAlaias: '@INT',
+        value: 4,
+        valueAlaias: '@INTV',
         rollResult: 0
       },
       {
         name: "Destreza",
         formula: "1d4",
         formulaAlaias: '@DEX',
+        value: 4,
+        valueAlaias: '@DEXV',
         rollResult: 0
       },
       {
         name: "Constituição",
         formula: "1d4",
         formulaAlaias: '@CON',
+        valueAlaias: '@DEXV',
+        value: 4,
         rollResult: 0
       },
       {
         name: "Espírito",
         formula: "1d4",
         formulaAlaias: '@ESP',
+        valueAlaias: '@ESPV',
+        value: 4,
         rollResult: 0
       },
       {
         name: "Carisma",
         formula: "1d4",
         formulaAlaias: '@CAR',
+        valueAlaias: '@CARV',
+        value: 4,
         rollResult: 0
       },
       {
         name: "Determinação",
         formula: "1d4",
         formulaAlaias: '@DET',
+        valueAlaias: '@DETV',
+        value: 4,
         rollResult: 0
       }
     ]; 
@@ -139,9 +151,13 @@ export class PlayerDataService {
 
     //get rolls result from atributes
     for(let item of this.player.attributes) {   
+      //values from atributes rolls
       if(contains(addConsAlaias, item.formulaAlaias)) value += Number(item.rollResult);
       if(contains(subConsAlaias, item.formulaAlaias)) value -= Number(item.rollResult);
 
+      //values from atributes values
+      if(contains(addConsAlaias, item.valueAlaias)) value += Number(item.value);
+      if(contains(subConsAlaias, item.valueAlaias)) value -= Number(item.value);
     }
 
     //get rolls result from skills
@@ -167,7 +183,6 @@ export class PlayerDataService {
     } else if(Number(value) == 0) {
       temporaryFormula = formulaRemain;
     }
-
 
     //roll the dice =)
     this.Dice.parseRoll(temporaryFormula);

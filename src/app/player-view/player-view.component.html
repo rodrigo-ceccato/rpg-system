@@ -36,26 +36,31 @@
     <!-- attributes -->
     <BR>
     <h3>Aptidões <button (click)="editAttributes()">Editar</button> <button (click)="addNewAttribute()">Nova</button></h3>
-    <div class="container">
-      <div class="box1">
-        Nome:
-        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
-          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.name">
-          <div *ngIf="attributeEdit==false">{{attribute.name}}</div>
-        </div>
-      </div>
 
-      <div class="box2">
-        Formula:
-        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+    <table class="d">
+      <tr>
+        <th>Nome</th>
+        <th>Formula</th>
+        <th>Teste</th>
+      </tr>
+
+      <tr *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+          
+        <th>
+        <div *ngIf="attributeEdit==false">{{attribute.name}}</div>
+          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.name">
+          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.formulaAlaias">
+           <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.value">
+          <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.valueAlaias">
+        </th>
+
+        <th>
           <input *ngIf="attributeEdit==true" [(ngModel)]="attribute.formula">
           <div *ngIf="attributeEdit==false">{{attribute.formula}}</div>
-        </div>
-      </div>
 
-      <div class="box3">
-        Teste:
-        <div *ngFor="let attribute of this.Player.player.attributes;  let i = index">
+        </th>
+
+        <th>
           <div *ngIf="attributeEdit==false">
               <button (click)="rollAttributeTest(i)">Rolar</button>
               =: {{attribute.rollResult}}
@@ -64,9 +69,14 @@
           <div *ngIf="attributeEdit==true">
               <button (click)="delAttribute(i)">Del</button>
           </div>
-          
-        </div>
-      </div>
+         
+        </th>
+        
+      </tr>
+    </table>
+
+
+  
     </div>
 
   </div>
@@ -83,13 +93,16 @@
     <BR> Dano:
     <BR>
 
+    <!-- table of conditiosn -->
+    <h3>Condições</h3>
+
     <!-- tables of xp -->
     <BR>
     <h3>Tabela de Experiência</h3>
     <div class="divTable blueTable">
       <div class="divTableBody">
         <div class="divTableRow">
-          <div class="divTableCell"><b>>Tipo</b></div>
+          <div class="divTableCell"><b>Tipo</b></div>
           <div class="divTableCell"><b>Disponível</b></div>
           <div class="divTableCell"><b>Total</b></div>
         </div>
@@ -99,15 +112,11 @@
           <div class="divTableCell">1002</div>
         </div>
         <div class="divTableRow">
-          <div class="divTableCell">Reputação</div>
+          <div class="divTableCell">Reputação......</div>
           <div class="divTableCell">1003</div>
           <div class="divTableCell">1004</div>
         </div>
-        <div class="divTableRow">
-          <div class="divTableCell">cell1_4</div>
-          <div class="divTableCell">cell2_4</div>
-          <div class="divTableCell">cell3_4</div>
-        </div>
+  
       </div>
 
     </div>

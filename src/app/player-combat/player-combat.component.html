@@ -17,30 +17,30 @@
 Ações de combate:
 <button (click)="addSkill()">Nova</button>
 
-<div class="skillCard" *ngFor="let skill of this.Player.player.skills;  let i = index">
-    <!-- combat info and usage -->
-    <div class="skillDisplayMode" *ngIf="skill.editable == false">
-        {{skill.name}} |
-        [{{skill.formula}}]
-        = [{{skill.rollResult}}] 
+<div class="skillWrapper">
+    <div class="skillCard" *ngFor="let skill of this.Player.player.skills;  let i = index">
+        <!-- combat info and usage -->
+        <div class="skillDisplayMode" *ngIf="skill.editable == false">
+            {{skill.name}}<BR>
+            Formula: {{skill.formula}} = [{{skill.rollResult}}] <BR>
+            <p *ngIf="skill.hpCost != 0">-{{skill.hpCost}} PV</p>
+            <p *ngIf="skill.spCost != 0">-{{skill.spCost}} PM</p>
+            <p *ngIf="skill.staCost != 0">-{{skill.staCost}} PR</p>
+            <button (click)="rollSkillFormula(i)">Rolar</button>
+            <button (click)="editSkill(i)">Editar</button>
+        </div>
 
-        <p *ngIf="skill.hpCost != 0">-{{skill.hpCost}} PV</p>
-        <p *ngIf="skill.spCost != 0">-{{skill.spCost}} PM</p>
-        <p *ngIf="skill.staCost != 0">-{{skill.staCost}} PR</p>
-        <button (click)="rollSkillFormula(i)">Rolar</button>
-        <button (click)="editSkill(i)">Editar</button>
-    </div>
+        <!-- combat action edit mode -->
+        <div class="skillEditMode" *ngIf="skill.editable == true">
+            <input [(ngModel)]="skill.name">
+            <input [(ngModel)]="skill.formula"><BR>
+            -<input [(ngModel)]="skill.hpCost"> PV<BR>
+            -<input [(ngModel)]="skill.spCost"> PM<BR>
+            -<input [(ngModel)]="skill.staCost"> PR <BR>
+            <input [(ngModel)]="skill.formulaAlaias"> Alaias <BR>
 
-    <!-- combat action edit mode -->
-    <div class="skillEditMode" *ngIf="skill.editable == true">
-        <input [(ngModel)]="skill.name">
-        <input [(ngModel)]="skill.formula"><BR>
-        -<input [(ngModel)]="skill.hpCost"> PV<BR>
-        -<input [(ngModel)]="skill.spCost"> PM<BR>
-        -<input [(ngModel)]="skill.staCost"> PR <BR>
-        <input [(ngModel)]="skill.formulaAlaias"> Alaias <BR>
-
-        <button (click)="saveSkill(i)">Salvar</button>
-        <button (click)="deleteSkill(i)">Deletar</button>
+            <button (click)="saveSkill(i)">Salvar</button>
+            <button (click)="deleteSkill(i)">Deletar</button>
+        </div>
     </div>
 </div>
