@@ -12,7 +12,8 @@
     "electron": "electron .",
     "electron-build": "ng build --prod && electron .",
     "develop": "cross-env NODE_ENV=DEVELOP electron .",
-    "build": "ng build --prod && cross-env NODE_ENV=BUILD electron ."
+    "build-run": "ng build --prod && cross-env NODE_ENV=BUILD electron .",
+    "build": "ng build --prod && cross-env NODE_ENV=BUILD electron-packager . --no-prune --ignore=/node_modules --ignore=/e2e --ignore=/src --ignore=/docs --ignore=/bin --all --overwrite --asar --out=bin --ignore"
   },
   "private": true,
   "dependencies": {
