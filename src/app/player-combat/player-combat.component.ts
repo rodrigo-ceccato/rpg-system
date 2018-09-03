@@ -36,14 +36,12 @@ export class PlayerCombatComponent implements OnInit {
   }
 
   rollSkillFormula(skillId){
-    let skill = this.Player.player.skills[skillId];
-    this.Dice.parseRoll(skill.formula);
-    skill.rollResult = this.Dice.rollNumericValue;
+    this.Player.parseSkillFormula(skillId);
+    
   }
 
   deleteSkill(skillId){
     this.Player.player.skills.splice(skillId, 1);
-
   }
 
 }

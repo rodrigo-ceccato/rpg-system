@@ -7,21 +7,6 @@ import { PlayerDataService } from '../player-data.service';
   styleUrls: ['./player-lore.component.css']
 })
 export class PlayerLoreComponent implements OnInit {
-  public textToEdit = " ";
-  public index;
-
-  public froalaOptions: Object = {
-    placeholderText: 'Edite sua história aqui',
-    charCounterCount: true,
-    heightMax: 100,
-    heightMin: 100,
-    toolbarButtons: [
-      'bold', 'italic', 'underline', 'strikeThrough', 
-      '|', 
-      'fontSize',
-      '|', 'paragraphFormat', 'formatUL',
-      'clearFormatting', '|', 'undo', 'redo']
-  }
 
   constructor(public Player: PlayerDataService) { }
 
@@ -29,20 +14,14 @@ export class PlayerLoreComponent implements OnInit {
   }
 
   editThis(i){
-    this.index = i;
-  }
-
-  closeEditor(){
-    this.index = null;
+    this.Player.player.history[i].editable = !this.Player.player.history[i].editable;
   }
 
   newLore(){
-    this.Player.player.history.push();
-    this.index = this.Player.player.history.length ;
+    this.Player.player.history.push({content: 'nova lore', editable: true});
   }
 
   deleteLore(i){
-    this.index = null;
     this.Player.player.history.splice(i, 1);
   }
 

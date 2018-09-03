@@ -7,3 +7,8 @@ input.skillDisplayMode{
     color: grey;
     background-color: chocolate;
 }
+
+input {
+    width: 40px;
+    border: none;
+}

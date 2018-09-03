@@ -1,5 +1,19 @@
 <h2>Combate</h2>
 
+<div class="status">
+    PV
+    <input [(ngModel)]="this.Player.player.health" type="number">/
+    <input [(ngModel)]="this.Player.player.maxHealth" type="number">
+
+    <BR>PM
+    <input [(ngModel)]="this.Player.player.mana" type="number">/
+    <input [(ngModel)]="this.Player.player.maxMana" type="number">
+
+    <BR>PR
+    <input [(ngModel)]="this.Player.player.sta" type="number">/
+    <input [(ngModel)]="this.Player.player.maxSta" type="number">
+</div>
+
 Ações de combate:
 <button (click)="addSkill()">Nova</button>
 
@@ -20,9 +34,13 @@ Ações de combate:
     <!-- combat action edit mode -->
     <div class="skillEditMode" *ngIf="skill.editable == true">
         <input [(ngModel)]="skill.name">
-        <input [(ngModel)]="skill.formula">
+        <input [(ngModel)]="skill.formula"><BR>
+        -<input [(ngModel)]="skill.hpCost"> PV<BR>
+        -<input [(ngModel)]="skill.spCost"> PM<BR>
+        -<input [(ngModel)]="skill.staCost"> PR <BR>
+        <input [(ngModel)]="skill.formulaAlaias"> Alaias <BR>
+
         <button (click)="saveSkill(i)">Salvar</button>
         <button (click)="deleteSkill(i)">Deletar</button>
     </div>
-
 </div>

@@ -1,17 +1,12 @@
 <h1>História de {{this.Player.player.name}}</h1>
-
-<div class="loreWrapper">
-  <div *ngFor="let text of this.Player.player.history;  let i = index">
-    <div class="wrapper">
-      <button class="myButton" (click)="editThis(i)">Editar</button>
-      <button class="myButton" (click)="deleteLore(i)">Deletar</button>
-      <div [innerHtml]="text"></div>
-    </div>
+<button (click)="newLore()">Nova</button>
+  
+<div *ngFor="let text of this.Player.player.history;  let i = index">
+  <button class="myButton" (click)="editThis(i)">Editar</button>
+  <button class="myButton" (click)="deleteLore(i)">Deletar</button>
+  
+  <div *ngIf="text.editable==false">{{text.content}}</div>
+  <div *ngIf="text.editable==true">
+    <input [(ngModel)]="text.content">
   </div>
-</div>
-
-<button *ngIf="!(this.index || this.index == 0)" class="myButton" (click)="newLore()">Adicionar</button>
-<div *ngIf="this.index || this.index == 0">
-  <button class="myButton" (click)="closeEditor()">Fechar</button>
-  <div *ngIf="this.index || this.index == 0" [froalaEditor]='froalaOptions' [(froalaModel)]="this.Player.player.history[this.index]"></div>
 </div>
