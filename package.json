@@ -1,6 +1,6 @@
 {
   "name": "rpg-system",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "main.js",
   "scripts": {
@@ -45,7 +45,7 @@
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "~6.0.60",
+    "@types/node": "^6.0.117",
     "codelyzer": "^4.0.1",
     "cross-env": "^5.2.0",
     "electron": "^2.0.8",
