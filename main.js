@@ -26,8 +26,23 @@ io.on('connection', function (socket) {
     socket.on('hostMapUpdate', function (msg) {
         console.log("Received map update!");
 
-        io.emit('mapUpdate', 'chegou mais mapa');
+        // send game master map to everyone
+        io.emit('mapUpdate', msg);
+    });
 
+    // process player movement
+    socket.on('playerMove', function (msg) {
+        console.log("Processing player move");
+
+        // send game master map to everyone
+        io.emit('playerMove', msg);
+    });
+
+    socket.on('playerSelection', function (msg) {
+        console.log("Processing player tile selection");
+
+        // send game master map to everyone
+        io.emit('playerSelection', msg);
     });
 });
 

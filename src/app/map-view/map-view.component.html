@@ -3,10 +3,10 @@
   <h2>Mapa</h2>
   <div class="mapWrapper">
     <div class="column left">
-      <div class="mapRow" *ngFor="let row of map; let i = index">
+      <div class="mapRow" *ngFor="let row of this.Map.map; let i = index">
         <div class="col" *ngFor="let tile of row; let j = index">
           <div class="tileBlock" [ngClass]="{'selectedStyle': i===this.selectedTile.i && 
-          j===this.selectedTile.j, 'blocked': tile.blocked == true}" (click)="selectTile(i,j)">
+          j===this.selectedTile.j, 'blocked': tile.blocked == true, 'pinged': tile.pinged == true}" (click)="selectTile(i,j)">
             <div *ngFor="let item of tile.inVision">
               {{item}}
             </div>

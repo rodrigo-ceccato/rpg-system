@@ -22,7 +22,7 @@ export class MapHostComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
 
   toggleBlockTerrain() {
@@ -46,11 +46,68 @@ export class MapHostComponent implements OnInit {
 
   }
 
-  startServing(){
+  startServing() {
     //starts emmiting the map info
     this.socket = io('http://localhost:' + String(this.hostPort));
+
     setInterval(() => {
       this.socket.emit('hostMapUpdate', this.Map.map);
-    }, 250);
+    }, 1500);
+
+    //handle player move
+    this.socket.on('playerMove', function (msg) {
+      console.log('Host processing player movment', msg.player);
+
+      let i = msg.w;
+      let j = msg.h;
+      let oldI=msg.player.lastPosition.i;
+      let oldJ=msg.player.lastPosition.j;
+
+      //if the tile doesnt have a vision array
+      //create an empty one
+      if (!this.Map.map[i][j].inVision) {
+        this.Map.map[i][j].inVision = [];
+        console.log('Inicialized vision array at tile', i, j);
+      }
+
+      //remove the player from the previus tile
+      let targetTile = this.Map.map[oldI][oldJ].inVision;
+
+      if(targetTile === undefined) {
+        targetTile = [];
+        console.log('Previous tile was empty. Now inicialized');
+
+      } else {
+        
+        let playerName = msg.player.name;
+        let indexOfPlayer = targetTile.indexOf(playerName);
+
+        console.log('About to move player', playerName);
+        console.log('Searching at tile:', oldI, oldJ);
+
+        if(indexOfPlayer != -1) {
+          targetTile.splice(indexOfPlayer, 1);
+        }
+
+        
+      }
+
+      //puts player on new cell
+      this.Map.map[i][j].inVision.push(msg.player.name);
+
+    }.bind(this));
+
+    //handle player selection
+    this.socket.on('playerSelection', function (msg) {
+      console.log('Processing player ping...', msg.player);
+      this.Map.map[msg.w][msg.h].pinged = true;
+
+      // removes the ping after timeout
+      setTimeout(function() { 
+        this.Map.map[msg.w][msg.h].pinged = false;
+       }.bind(this), 2500);
+
+    }.bind(this));
   }
+
 }

@@ -23,7 +23,7 @@ export class MapViewComponent implements OnInit {
     this.selectedTile = this.Map.selectedTile;
 
     //TODO: change this to update only when needed
-    setInterval(() => this.updateMap(), 250);
+    // setInterval(() => this.updateMap(), 250);
 
     this.map = this.Map.map;
   }
@@ -50,6 +50,7 @@ export class MapViewComponent implements OnInit {
   selectTile(i, j) {
     this.selectedTile.i = i;
     this.selectedTile.j = j;
+    console.log('Updated selected tile');
   }
 
 }

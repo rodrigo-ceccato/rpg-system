@@ -12,6 +12,11 @@ export class PlayerDataService {
 
     this.player.history = [{content: "Nasceu", editable: false}];
     
+    this.player.lastPosition = {
+      i: 0,
+      j: 0
+    }
+
     this.player.skills = [
       {
         editable: false,

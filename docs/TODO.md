@@ -31,3 +31,6 @@ kwno issue> new dice parser crasing THE WHLE THING on some inputs
 
 
 ALLOW PM PV PR COST TO BE DICE ROLLS TOO!! 
+
+MOVE PING TIMEOUT,
+AND SERVER UPdATE TO CONST FILE
