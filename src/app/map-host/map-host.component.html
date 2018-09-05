@@ -1,7 +1,11 @@
 
 <p>Selecionou: {{selectedTile.i}},{{selectedTile.j}}</p>
 
-PeerId= {{peerHostId}} <br>
+Porta para servir:<input [(ngModel)]="hostPort">
+<button (click)="startServing()"> Conectar</button>
+<br>
+
+<br><br>
 
 Altura:<input [(ngModel)]="tableH"> 
 <BR>

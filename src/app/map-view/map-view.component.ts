@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerDataService } from '../player-data.service';
 import { MapProviderService } from '../map-provider.service';
+import { truncate } from 'fs';
 
 @Component({
   selector: 'app-map-view',
@@ -10,9 +11,12 @@ import { MapProviderService } from '../map-provider.service';
 export class MapViewComponent implements OnInit {
 
   public serveMap = false;
+  public clientMap = false;
 
-  public map=[[]];
-  public selectedTile = {i: '0', j: '0'};
+  public localIp = "0.0.0.0"
+
+  public map = [[]];
+  public selectedTile = { i: '0', j: '0' };
 
   constructor(public Map: MapProviderService) {
     //get the map from provider
@@ -25,15 +29,20 @@ export class MapViewComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
-  updateMap(){
+  updateMap() {
     this.map = this.Map.map;
   }
 
   // toggle if we are hosting or acessing a map
-  toggleServeMap(){
-    this.serveMap = !this.serveMap;
+  startMapServer() {
+    this.serveMap = true;
+  }
+
+  startMapClient() {
+    this.clientMap = true;
   }
 
   // allow the user to select a tile

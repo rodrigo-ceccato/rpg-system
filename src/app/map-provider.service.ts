@@ -3,7 +3,6 @@ import { PlayerDataService } from './player-data.service';
 
 @Injectable()
 export class MapProviderService {
-
   public map = [[]];
 
   public selectedTile = {
@@ -14,16 +13,14 @@ export class MapProviderService {
   public tableW = 4;
   public tableH = 4;
 
-  public peerServerId = '0';
-
   //need to remeber where player was,
   //so we can remove when moving
   playerLastPositionI = '0';
   playerLastPositionJ = '0';
 
   constructor(public Player: PlayerDataService) {
-
     this.generateMap();
+
   }
 
   generateMap() {

@@ -13,7 +13,8 @@
     "electron-build": "ng build --prod && electron .",
     "develop": "cross-env NODE_ENV=DEVELOP electron .",
     "build-run": "ng build --prod && cross-env NODE_ENV=BUILD electron .",
-    "build": "ng build --prod && cross-env NODE_ENV=BUILD electron-packager . --no-prune --ignore=/node_modules --ignore=/e2e --ignore=/src --ignore=/docs --ignore=/bin --all --overwrite --asar --out=bin --ignore"
+    "build": "ng build --prod && cross-env NODE_ENV=BUILD electron-packager . --prune=true --all --ignore=build-bin --overwrite --asar --out=build-bin",
+    "build-test": "cross-env NODE_ENV=BUILD electron-packager . --prune=true --ignore=build-bin --overwrite --out=build-bin --asar"
   },
   "private": true,
   "dependencies": {
@@ -27,15 +28,21 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@types/peerjs": "0.0.29",
+    "@types/socket.io-client": "^1.4.32",
     "angular-froala-wysiwyg": "^2.8.4-1",
     "core-js": "^2.4.1",
     "dice-typescript": "^1.4.1",
+    "electron-updater": "^3.1.2",
+    "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "messenger": "0.0.9",
     "min-jquery": "^1.7.0",
     "npm": "^6.4.0",
     "rxjs": "^5.5.6",
     "simditor": "^2.3.19",
     "simple-module": "^3.0.3",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
     "webrtc-adapter": "^6.3.2",
     "zone.js": "^0.8.19"
   },

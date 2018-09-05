@@ -1,11 +1,39 @@
 const { app, BrowserWindow } = require('electron')
 
+var mapServer = require('express')();
+var http = require('http').Server(mapServer);
+var io = require('socket.io')(http);
+
 let win;
 
 // no develop parameter, assumes build
-if (process.env.NODE_ENV == null){
+if (process.env.NODE_ENV == null) {
     process.env.NODE_ENV = "BUILD"
 }
+
+//start our map server
+let playerList = []; //keep a list of all players on server
+
+io.on('connection', function (socket) {
+    console.log('a user connected');
+
+
+    socket.on('disconnect', function () {
+        console.log('user disconnected');
+    });
+
+    // broadcast every map update to everyone
+    socket.on('hostMapUpdate', function (msg) {
+        console.log("Received map update!");
+
+        io.emit('mapUpdate', 'chegou mais mapa');
+
+    });
+});
+
+http.listen(3000, function () {
+    console.log('listening on *:3000');
+});
 
 function createWindow() {
     // Create the browser window.
@@ -15,7 +43,7 @@ function createWindow() {
         backgroundColor: '#ffffff',
         icon: `file://${__dirname}/dist/assets/logo.png`
     })
-    
+
     //hides the menu bar
     win.setMenu(null);
 

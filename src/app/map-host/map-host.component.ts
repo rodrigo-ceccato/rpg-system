@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapProviderService } from '../map-provider.service';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-map-host',
@@ -10,39 +11,18 @@ export class MapHostComponent implements OnInit {
   public selectedTile;
   public tableW;
   public tableH;
-  public peerHostId = 'loading ID...';
+  private socket: SocketIOClient.Socket;
+  public hostPort = 3000;
 
   constructor(public Map: MapProviderService) {
     //get variables from provider
     this.selectedTile = this.Map.selectedTile;
     this.tableW = this.Map.tableW;
     this.tableH = this.Map.tableH;
-    this.peerHostId = this.Map.peerServerId;
   }
 
-  
-
   ngOnInit() {
-    var peer = new Peer({key: 'lwjd5qra8257b9'});
-
-    peer.on('open', function(id) {
-      console.log('My peer ID is: ' + id);
-    });
-
-    var conn = peer.connect('another-peers-id');
-    // on open will be launch when you successfully connect to PeerServer
-    conn.on('open', function(){
-      // here you have conn.id
-      conn.send('hi!');
-    });
-
-    peer.on('connection', function(conn) {
-      conn.on('data', function(data){
-        // Will print 'hi!'
-        console.log(data);
-      });
-    });
-
+    
   }
 
   toggleBlockTerrain() {
@@ -64,6 +44,13 @@ export class MapHostComponent implements OnInit {
 
   sendData() {
 
+  }
 
+  startServing(){
+    //starts emmiting the map info
+    this.socket = io('http://localhost:' + String(this.hostPort));
+    setInterval(() => {
+      this.socket.emit('hostMapUpdate', this.Map.map);
+    }, 250);
   }
 }

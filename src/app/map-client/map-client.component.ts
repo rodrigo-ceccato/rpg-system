@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapProviderService } from '../map-provider.service';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-map-client',
@@ -7,26 +8,27 @@ import { MapProviderService } from '../map-provider.service';
   styleUrls: ['./map-client.component.css']
 })
 export class MapClientComponent implements OnInit {
+  private socket: SocketIOClient.Socket;
+  public hostIp: String;
 
-  public peer = new Peer();
+  constructor(public Map: MapProviderService) {
 
-  public DestionationPeerId = '0';
-
-  constructor(public Map:MapProviderService) {
-
-
-   }
+  }
 
   ngOnInit() {
   }
 
-  getData(){
-    var conn = this.peer.connect('another-peers-id');
-    // on open will be launch when you successfully connect to PeerServer
-    conn.on('open', function(){
-      // here you have conn.id
-      conn.send('hi!');
+  startConnection() {
+    this.socket = io('http://' + this.hostIp);
+
+    this.socket.on('mapUpdate', function (msg) {
+      console.log('Got from sv>', msg);
+      this.Map.map = [[]];
     });
+  }
+
+  getData() {
+
 
   }
 
