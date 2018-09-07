@@ -12,15 +12,23 @@ if (process.env.NODE_ENV == null) {
 }
 
 //start our map server
-let playerList = []; //keep a list of all players on server
 
+//gets our local ip
+var ip = require("ip");
+localIp = ip.address();
+
+
+//create connection sockets
 io.on('connection', function (socket) {
     console.log('a user connected');
-
 
     socket.on('disconnect', function () {
         console.log('user disconnected');
     });
+
+    socket.on('hostConnection', function(){
+        io.emit('connectionInfo', localIp);
+    }.bind(this));
 
     // broadcast every map update to everyone
     socket.on('hostMapUpdate', function (msg) {

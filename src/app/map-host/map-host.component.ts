@@ -13,6 +13,7 @@ export class MapHostComponent implements OnInit {
   public tableH;
   private socket: SocketIOClient.Socket;
   public hostPort = 3000;
+  public localIp:String = 'indefinido';
 
   constructor(public Map: MapProviderService) {
     //get variables from provider
@@ -49,6 +50,12 @@ export class MapHostComponent implements OnInit {
   startServing() {
     //starts emmiting the map info
     this.socket = io('http://localhost:' + String(this.hostPort));
+
+    this.socket.on('connectionInfo', function (msg) {
+      this.localIp = msg;
+    }.bind(this));
+
+    this.socket.emit('hostConnection');
 
     setInterval(() => {
       this.socket.emit('hostMapUpdate', this.Map.map);
