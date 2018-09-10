@@ -1,12 +1,25 @@
 <h1>História de {{this.Player.player.name}}</h1>
 <button (click)="newLore()">Nova</button>
-  
-<div *ngFor="let text of this.Player.player.history;  let i = index">
-  <button class="myButton" (click)="editThis(i)">Editar</button>
-  <button class="myButton" (click)="deleteLore(i)">Deletar</button>
-  
-  <div *ngIf="text.editable==false">{{text.content}}</div>
+<BR>
+<BR>
+
+<div class="loreWrapper" *ngFor="let text of this.Player.player.history;  let i = index">
+  <div *ngIf="text.editable==false">
+    <BR>
+    <div class="textContent">
+      {{text.content}}
+    </div>
+    <button class="editButton" (click)="editThis(i)">Editar</button>
+    <BR>
+    <BR>
+  </div>
+
   <div *ngIf="text.editable==true">
-    <input [(ngModel)]="text.content">
+    <textarea class="textInput" [(ngModel)]="text.content"></textarea>
+    <BR>
+    <button class="myButton" (click)="deleteLore(i)">Deletar</button>
+    <button class="myButton" (click)="editThis(i)">Salvar</button>
+    <BR>
+    <BR>
   </div>
 </div>

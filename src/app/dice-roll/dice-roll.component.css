@@ -1,6 +1,15 @@
 .contWrapper{
     display: flex;
     align-content: space-around;
+    background-color: rgba(100, 100, 100, 0.95);
+    color: black;
+    font-size: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.contWrapper * {
+    margin: 5px;
 }
 
 .rollBtnWrapper {
@@ -9,11 +18,28 @@
     z-index: 999;
 }
 
-.rollExpression {
+.rollBtnWrapper .rollBtn {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.contWrapper .rollExpression {
     right: 0;
-    position: fixed;   
+    position: fixed; 
+    line-height: 20px;
 }
 
 .rollInput{
     z-index: 999;
+}
+
+.contWrapper .rollInput .rollInputText {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.contWrapper .rollExpression .rollInputText {
+    font-size: 20px;
+    line-height: 20px;
+    color: black;
 }

@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import {PlayerDataService} from './player-data.service';
 import {DiceLogicService} from './dice-logic.service';
 
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-
 import { AppComponent } from './app.component';
 import { PlayerViewComponent } from './player-view/player-view.component';
 import { PlayerEditSkillsComponent } from './player-edit-skills/player-edit-skills.component';
@@ -34,9 +32,7 @@ import { MapProviderService } from './map-provider.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FormsModule
   ],
   providers: [
     PlayerDataService,

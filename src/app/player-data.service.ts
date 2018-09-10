@@ -10,7 +10,16 @@ export class PlayerDataService {
   constructor(public Dice:DiceLogicService) {
     this.player.name = 'robsonion';
 
-    this.player.history = [{content: "Nasceu", editable: false}];
+    this.player.history = [
+      {
+        content: "Lorem ipsum praesent lectus ac a et turpis, arcu vestibulum aenean lacus pretium dapibus dui, pretium rutrum sagittis lorem egestas lorem. Porta sem eros pretium etiam feugiat lacus, urna netus porta velit ut taciti ut, mollis ornare leo est duis. enim fringilla quis ante libero tellus praesent morbi suspendisse, odio elit integer vestibulum dictum congue. interdum ligula porta aliquam fames dui ultricies placerat, nostra ultrices urna tortor semper condimentum, faucibus erat pretium curabitur ut mattis. pharetra metus sit semper netus ultricies ipsum gravida tempor eros primis, enim eros duis nunc curae purus a ullamcorper convallis, ullamcorper leo suspendisse vel ipsum purus mollis enim placerat. ", 
+        editable: true
+      },
+      {
+        content: "Lorem ipsum praesent lectus ac a et turpis, arcu vestibulum aenean lacus pretium dapibus dui, pretium rutrum sagittis lorem egestas lorem. Porta sem eros pretium etiam feugiat lacus, urna netus porta velit ut taciti ut, mollis ornare leo est duis. enim fringilla quis ante libero tellus praesent morbi suspendisse, odio elit integer vestibulum dictum congue. interdum ligula porta aliquam fames dui ultricies placerat, nostra ultrices urna tortor semper condimentum, faucibus erat pretium curabitur ut mattis. pharetra metus sit semper netus ultricies ipsum gravida tempor eros primis, enim eros duis nunc curae purus a ullamcorper convallis, ullamcorper leo suspendisse vel ipsum purus mollis enim placerat. ", 
+        editable: false
+      }
+    ];
     
     this.player.lastPosition = {
       i: 0,
@@ -101,15 +110,26 @@ export class PlayerDataService {
         rollResult: 0
       }
     ]; 
+  }
 
+  parseSkillFormula(skillId){
+    let skill = this.player.skills[skillId];
+    let formula = skill.formula;
+    this.parseFormula(formula);
+
+    //takes player cost of the skill
+    this.player.health -= skill.hpCost;
+    this.player.mana -= skill.spCost;
+    this.player.sta -= skill.staCost;
+
+    //save the roll result at the formula field
+    skill.rollResult = this.Dice.rollNumericValue;
   }
 
   //TODO: refactor this PARSER
   // this function parse the formulas that use
   // other skills as input
-  parseSkillFormula(skillId){
-    let skill = this.player.skills[skillId];
-    let formula = skill.formula;
+  parseFormula(formula){
     let pattern = "[+ | -]\\s+@[a-z|A-Z ]+";
 
     //get all the const in formula
@@ -171,11 +191,6 @@ export class PlayerDataService {
       if(contains(subConsAlaias, item.formulaAlaias)) value -= Number(item.rollResult);
     }
 
-    //takes player cost of the skill
-    this.player.health -= skill.hpCost;
-    this.player.mana -= skill.spCost;
-    this.player.sta -= skill.staCost;
-
     //generate our new formula
     let temporaryFormula:String;
 
@@ -189,9 +204,19 @@ export class PlayerDataService {
       temporaryFormula = formulaRemain;
     }
 
-    //roll the dice =)
-    this.Dice.parseRoll(temporaryFormula);
-    skill.rollResult = this.Dice.rollNumericValue;
-    console.log(temporaryFormula);
+    //checks if an alaias was left un-met
+    //TODO: add more functionality to this checker
+    if(contains(temporaryFormula, '@')) {
+      console.log("Error, not goint to roll...");
+      console.log("Alaias un-met!");
+      console.log(temporaryFormula);
+
+    } else {
+      //roll the dice =)
+      this.Dice.parseRoll(temporaryFormula);
+      console.log(temporaryFormula);
+    }
+
+    
   }
 }
