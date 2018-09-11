@@ -5,6 +5,7 @@
     <li><a [ngClass]="{'active': combatView}" (click)="toggleCombatView()">Combate</a></li>
     <li><a [ngClass]="{'active': loreView}" (click)="toggleLoreView()">História</a></li>
     <li><a [ngClass]="{'active': mapView}" (click)="toggleMapView()">Mapa</a></li>
+    <li><a [ngClass]="{'active': settingsView}" (click)="toggleSettingView()">Configurações</a></li>
 
     <li style="float:right"><a class="active">RPG System {{version}}</a></li>
   </ul>
@@ -17,6 +18,7 @@
     <app-player-combat *ngIf="combatView"></app-player-combat>
     <app-player-lore *ngIf="loreView"></app-player-lore>
     <app-map-view *ngIf="mapView"></app-map-view>
+    <app-settings-view *ngIf="settingsView"></app-settings-view>
   </div>
 </div>  
 

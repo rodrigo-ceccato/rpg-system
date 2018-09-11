@@ -10,6 +10,7 @@
 
 .contWrapper * {
     margin: 5px;
+    
 }
 
 .rollBtnWrapper {
@@ -36,10 +37,18 @@
 .contWrapper .rollInput .rollInputText {
     font-size: 20px;
     line-height: 20px;
+    color: black;
 }
+
+input::placeholder {
+    font-size: 20px;
+    line-height: 20px;
+    color: black;
+} 
+
 
 .contWrapper .rollExpression .rollInputText {
     font-size: 20px;
     line-height: 20px;
-    color: black;
 }
+

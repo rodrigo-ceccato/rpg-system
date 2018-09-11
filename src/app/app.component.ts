@@ -11,11 +11,12 @@ export class AppComponent {
 
   public version: string = environment.VERSION;
 
-  public generalView = true;
+  public generalView = false;
   public inventoryView = false;
-  public combatView = true;
-  public loreView = true;
+  public combatView = false;
+  public loreView = false;
   public mapView = false;
+  public settingsView = true;
 
   toggleGeneralView(){
    this.generalView = !this.generalView ;
@@ -35,5 +36,9 @@ export class AppComponent {
   
   toggleMapView(){
    this.mapView = !this.mapView ;
+  }
+
+  toggleSettingView(){
+   this.settingsView = !this.settingsView ;
   }
 }

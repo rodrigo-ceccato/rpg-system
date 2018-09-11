@@ -16,6 +16,7 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { MapHostComponent } from './map-host/map-host.component';
 import { MapClientComponent } from './map-client/map-client.component';
 import { MapProviderService } from './map-provider.service';
+import { SettingsViewComponent } from './settings-view/settings-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MapProviderService } from './map-provider.service';
     DiceRollComponent,
     MapViewComponent,
     MapHostComponent,
-    MapClientComponent
+    MapClientComponent,
+    SettingsViewComponent
   ],
   imports: [
     BrowserModule,
