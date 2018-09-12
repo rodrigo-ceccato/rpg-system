@@ -17,6 +17,8 @@ import { MapHostComponent } from './map-host/map-host.component';
 import { MapClientComponent } from './map-client/map-client.component';
 import { MapProviderService } from './map-provider.service';
 import { SettingsViewComponent } from './settings-view/settings-view.component';
+import { PopupHelpService } from './popup-help.service';
+import { PopupViewComponent } from './popup-view/popup-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { SettingsViewComponent } from './settings-view/settings-view.component';
     MapViewComponent,
     MapHostComponent,
     MapClientComponent,
-    SettingsViewComponent
+    SettingsViewComponent,
+    PopupViewComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { SettingsViewComponent } from './settings-view/settings-view.component';
   providers: [
     PlayerDataService,
     DiceLogicService,
-    MapProviderService
+    MapProviderService,
+    PopupHelpService
   ],
   bootstrap: [AppComponent]
 })
