@@ -100,7 +100,18 @@ export class PlayerDataService {
         value: 4,
         rollResult: 0
       }
-    ]; 
+    ];
+
+    this.player.inventory = [
+      {
+        name: 'Faca de furar lixo',
+        quality: 'Alta',
+        value: 303,
+        size: 'M',
+        unitytWeight: 10,
+        quantity: 100
+      }
+    ];
 
   }
 
