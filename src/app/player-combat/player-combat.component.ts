@@ -37,7 +37,6 @@ export class PlayerCombatComponent implements OnInit {
 
   rollSkillFormula(skillId){
     this.Player.parseSkillFormula(skillId);
-    
   }
 
   deleteSkill(skillId){

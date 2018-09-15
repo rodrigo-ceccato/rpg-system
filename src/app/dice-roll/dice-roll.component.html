@@ -1,13 +1,14 @@
 <div class="contWrapper">
   <div class="rollInput">
-    <input [(ngModel)]="rollInputExpression">
+    <input class="rollInputText" [(ngModel)]="rollInputExpression">
   </div>
 
   <div class="rollExpression">
-    {{this.Dice.parsedRoll}} = {{this.Dice.rollNumericValue}}
+      <input readonly class="rollInputText" placeholder="{{this.Dice.parsedRoll}} = {{this.Dice.rollNumericValue}}">
+      
   </div>
 
   <div class="rollBtnWrapper">
-    <button (click)="parseRollInput()">Rolar!</button>
+    <button class="rollBtn" (click)="parseRollInput()">Rolar!</button>
   </div>
 </div>

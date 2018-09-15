@@ -1,0 +1,19 @@
+<div class="popUpContentWrapper" *ngIf="this.Popup.show">
+  <div class="popUpContent">
+    <h1>{{this.Popup.title}}</h1>
+
+    <div class="popText">
+      {{this.Popup.content}}
+      {{this.Popup.content}}
+      {{this.Popup.content}}
+    </div>
+
+    <BR>
+    <BR>
+
+    <div class="btnWrapper">
+      <button (click)="this.Popup.okBtnPress()">Ok</button>
+    </div>
+
+  </div>
+</div>

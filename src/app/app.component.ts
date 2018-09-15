@@ -16,6 +16,7 @@ export class AppComponent {
   public combatView = false;
   public loreView = false;
   public mapView = false;
+  public settingsView = true;
 
   toggleGeneralView(){
    this.generalView = !this.generalView ;
@@ -35,5 +36,9 @@ export class AppComponent {
   
   toggleMapView(){
    this.mapView = !this.mapView ;
+  }
+
+  toggleSettingView(){
+   this.settingsView = !this.settingsView ;
   }
 }

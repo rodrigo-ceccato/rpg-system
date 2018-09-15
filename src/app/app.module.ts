@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 import {PlayerDataService} from './player-data.service';
 import {DiceLogicService} from './dice-logic.service';
 
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-
 import { AppComponent } from './app.component';
 import { PlayerViewComponent } from './player-view/player-view.component';
 import { PlayerEditSkillsComponent } from './player-edit-skills/player-edit-skills.component';
@@ -18,6 +16,9 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { MapHostComponent } from './map-host/map-host.component';
 import { MapClientComponent } from './map-client/map-client.component';
 import { MapProviderService } from './map-provider.service';
+import { SettingsViewComponent } from './settings-view/settings-view.component';
+import { PopupHelpService } from './popup-help.service';
+import { PopupViewComponent } from './popup-view/popup-view.component';
 
 @NgModule({
   declarations: [
@@ -30,18 +31,19 @@ import { MapProviderService } from './map-provider.service';
     DiceRollComponent,
     MapViewComponent,
     MapHostComponent,
-    MapClientComponent
+    MapClientComponent,
+    SettingsViewComponent,
+    PopupViewComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FormsModule
   ],
   providers: [
     PlayerDataService,
     DiceLogicService,
-    MapProviderService
+    MapProviderService,
+    PopupHelpService
   ],
   bootstrap: [AppComponent]
 })

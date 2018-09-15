@@ -1,14 +1,22 @@
-.wrapper {
+.loreWrapper .textInput {
     width: 100%;
-    margin: 0 auto;
-    display: inline-block;
-    margin-top: 5%;
-    border-bottom-style: dashed;
+    height: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    overflow-x: initial;
 }
 
-.loreWrapper {
-    height: 50vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border-bottom-style: solid;
+.loreWrapper .textContent {
+    border-right-style: groove;
+    border-left-style: groove;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.editButton {
+    float: right;
 }
