@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<style>
+    body {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -o-user-select: none;
+
+        overflow: hidden;
+
+        background-color: darkgray;
+        color: white;
+    }
+
+    .center {
+        height: 200px;
+        position: relative;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+    }
+
+    .slider {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        overflow-x: hidden;
+    }
+
+    .line {
+        position: absolute;
+        opacity: 0.4;
+        background: #4a8df8;
+        width: 150%;
+        height: 20px;
+    }
+
+    .subline {
+        position: absolute;
+        background: #4a8df8;
+        height: 20px;
+    }
+
+    .inc {
+        animation: increase 2s infinite;
+    }
+
+    .dec {
+        animation: decrease 2s 0.5s infinite;
+    }
+
+    @keyframes increase {
+        from {
+            left: -5%;
+            width: 5%;
+        }
+
+        to {
+            left: 130%;
+            width: 100%;
+        }
+    }
+
+    @keyframes decrease {
+        from {
+            left: -80%;
+            width: 80%;
+        }
+
+        to {
+            left: 110%;
+            width: 10%;
+        }
+    }
+</style>
+
+<body unselectable="on" onselectstart="return false;" onmousedown="return false;">
+
+    <div class="center">
+        <BR>
+        <BR>
+        Carregando recursos...
+        <BR>
+        <BR>
+        <BR>
+        <div class="slider">
+            <div class="line"></div>
+            <div class="subline inc"></div>
+            <div class="subline dec"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

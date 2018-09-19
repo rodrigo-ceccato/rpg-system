@@ -11,34 +11,49 @@ export class AppComponent {
 
   public version: string = environment.VERSION;
 
-  public generalView = false;
+  public generalView = true;
   public inventoryView = false;
   public combatView = false;
   public loreView = false;
   public mapView = false;
-  public settingsView = true;
+  public settingsView = false;
 
-  toggleGeneralView(){
-   this.generalView = !this.generalView ;
-  }
-
-  toggleInventoryView(){
-   this.inventoryView = !this.inventoryView ;
+  toggleGeneralView() {
+    this.closeViews();
+    this.generalView = true;
   }
 
-  toggleCombatView(){
-   this.combatView = !this.combatView ;
-  }
-  
-  toggleLoreView(){
-   this.loreView = !this.loreView ;
-  }
-  
-  toggleMapView(){
-   this.mapView = !this.mapView ;
+  toggleInventoryView() {
+    this.closeViews();
+    this.inventoryView = true;
   }
 
-  toggleSettingView(){
-   this.settingsView = !this.settingsView ;
+  toggleCombatView() {
+    this.closeViews();
+    this.combatView = true;
+  }
+
+  toggleLoreView() {
+    this.closeViews();
+    this.loreView = true;
+  }
+
+  toggleMapView() {
+    this.closeViews();
+    this.mapView = true;
+  }
+
+  toggleSettingView() {
+    this.closeViews();
+    this.settingsView = true;
+  }
+
+  closeViews() {
+    this.generalView = false;
+    this.inventoryView = false;
+    this.combatView = false;
+    this.loreView = false;
+    this.mapView = false;
+    this.settingsView = false;
   }
 }

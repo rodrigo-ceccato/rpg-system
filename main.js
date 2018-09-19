@@ -12,11 +12,9 @@ if (process.env.NODE_ENV == null) {
 }
 
 //start our map server
-
 //gets our local ip
 var ip = require("ip");
 localIp = ip.address();
-
 
 //create connection sockets
 io.on('connection', function (socket) {
@@ -59,11 +57,22 @@ http.listen(3000, function () {
 });
 
 function createWindow() {
+    // creates the splash scrren window
+    splash = new BrowserWindow({ 
+        titleBarStyle: "hidden",
+        width: 500,
+        height: 300,
+        frame: false
+    });
+    
+    splash.setMenu(null);
+
     // Create the browser window.
     win = new BrowserWindow({
         width: 1000,
         height: 700,
         backgroundColor: '#ffffff',
+        show: false,
         icon: `file://${__dirname}/dist/assets/logo.png`
     })
 
@@ -71,10 +80,12 @@ function createWindow() {
     win.setMenu(null);
 
     if (process.env.NODE_ENV == "BUILD") {
-        win.loadURL(`file://${__dirname}/dist/index.html`)
+        win.loadURL(`file://${__dirname}/dist/index.html`);
+        splash.loadURL(`file://${__dirname}/dist/assets/splash/splash.html`);
 
     } else {
-        win.loadURL("http://localhost:4200")
+        win.loadURL("http://localhost:4200");
+        splash.loadURL(`file://${__dirname}/src/assets/splash/splash.html`);
         //// uncomment below to open the DevTools.
         win.webContents.openDevTools()
     }
@@ -82,6 +93,22 @@ function createWindow() {
     // Event when the window is closed.
     win.on('closed', function () {
         win = null
+    })
+
+    splash.on('closed', function () {
+        splash = null;
+    })
+
+    win.once('ready-to-show', () => {
+        //checks if the user closed the splash scrren
+        if(splash != null) {
+            splash.close();
+            win.show()
+
+        } else {
+            console.log('user closed splash scrren befor load was complete');
+            win.close();
+        }
     })
 }
 
