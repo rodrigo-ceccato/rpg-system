@@ -1,3 +1,23 @@
-<p>
-  player-inventory works!
-</p>
+<h2>Inventário</h2>
+<button>Editar</button>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Qualidade</th>
+    <th>Valor</th>
+    <th>Tamanho</th>
+    <th>Peso/u</th>
+    <th>Peso</th>
+  </tr>
+
+  <tr *ngFor="let item of this.Player.player.inventory">
+    <td>{{item.name}}</td>
+    <td>{{item.quality}}</td>
+    <td>{{item.value}}</td>
+    <td>{{item.size}}</td>
+    <td>{{item.unityWeight}}</td>
+    <td>{{item.quantity}}</td>
+    <td>{{item.quantity * item.unityWeight}}</td>
+  </tr>
+</table>
